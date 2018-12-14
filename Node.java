@@ -9,24 +9,47 @@ public class Node{
     data = value;
   }
 
-  private Node (Integer value){
+  public Node (Integer value){
     data = value;
   }
 
-  private Node (Node from, Node to){
+  public Node (Node from, Node to){
     next = to;
     prev = from;
   }
 
-  private Node next(){
+  public Node next(){
     return this.next;
   }
 
-  private Node prev(){
+  public Node prev(){
     return this.prev;
   }
 
-  private void setNext
+  public void setNext(Node other){
+    this.next = other;
+    other.prev = this;
+  }
+
+ public void setPrev(Node other){
+   this.prev = other;
+   other.next = this;
+ }
+
+ public Integer getData(){
+   return data;
+ }
+
+ public Integer setData(Integer i){
+   Integer result = this.data;
+   this.data = i;
+   return result;
+ }
+
+ public String toString(){
+   return "" + data;
+ }
+
 }
 
 
