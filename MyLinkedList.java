@@ -8,6 +8,17 @@ public class MyLinkedList{
     end =  new Node(null);
   }
 
+ private Node getNthNode (int n){
+   Node current = start;
+   for (int i = 0; i < n; i++){
+     current = current.next(); // loop finds the node at int n by looping through the list 
+   }
+   return current;
+ }
+
+ public boolean add (Integer value){
+
+ }
 }
 
 
