@@ -19,9 +19,28 @@ public class MyLinkedList{
  public int size(){
    return length;
  }
- public boolean add (Integer value){
 
- }
+ public boolean add (Integer value){
+   if (value == null) {
+      throw new NullPointerException();
+    }
+   if (length == 0){
+     Node endNode = new Node(value);
+     this.start = endNode;
+     this.end = endNode;
+     length ++;
+     return true;
+   }
+   else{
+     Node endNode = new Node(value);
+     end.setNext(endNode);
+     end = endNode;
+     length ++;
+     return true;
+   }
+
+   }
+
 }
 
 
