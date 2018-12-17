@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.lang.IndexOutOfBoundsException;
+// took help from Oliver at CSDojo
 
 public class MyLinkedList{
   private Node start, end;
@@ -24,6 +25,19 @@ public class MyLinkedList{
   public int size(){
     return length;
   }
+
+public String toString(){
+ if(this.size() == 0){
+   return "[]";
+ }
+ String result = "[";
+ Node current = start;
+ while (current != null){
+   result = result + current.getData() + ",";
+   current = current.next();
+ }
+ return result.substring(0, result.length() - 1) + "]";
+}
 
   public boolean add (Integer value){
     if (value == null) {
