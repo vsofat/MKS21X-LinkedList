@@ -26,18 +26,18 @@ public class MyLinkedList{
     return length;
   }
 
-public String toString(){
- if(this.size() == 0){
-   return "[]";
- }
- String result = "[";
- Node current = start;
- while (current != null){
-   result = result + current.getData() + ",";
-   current = current.next();
- }
- return result.substring(0, result.length() - 1) + "]";
-}
+  public String toString(){
+    if(this.size() == 0){
+      return "[]";
+    }
+    String result = "[";
+    Node current = start;
+    while (current != null){
+      result = result + current.getData() + ",";
+      current = current.next();
+    }
+    return result.substring(0, result.length() - 1) + "]";
+  }
 
   public boolean add (Integer value){
     if (value == null) {
