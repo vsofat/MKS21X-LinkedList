@@ -8,7 +8,7 @@ public class MyLinkedList{
   private Node start, end;
   private int length;
 
-  private MyLinkedList(){
+  public MyLinkedList(){
     length = 0;
     start = new Node(null);
     end =  new Node(null);
@@ -143,6 +143,17 @@ public class MyLinkedList{
     return true;
   }
 
+  public Integer get(int index) {
+    if (index >= length || index < 0){
+      throw new IndexOutOfBoundsException();}
+    return getNthNode(index).getData();
+  }
+
+  public Integer set(int index, Integer value) {
+    if (index >= length || index < 0){
+      throw new IndexOutOfBoundsException();}
+    return getNthNode(index).setData(value);
+  }
 
 
 
