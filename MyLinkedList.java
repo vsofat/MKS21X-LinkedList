@@ -33,10 +33,10 @@ public class MyLinkedList{
     String result = "[";
     Node current = start;
     while (current != null){
-      result = result + current.getData() + ",";
+      result = result + current.getData() + ", ";
       current = current.next();
     }
-    return result.substring(0, result.length() - 1) + "]";
+    return result.substring(0, result.length() - 2) + "]";
   }
 
   public boolean add (Integer value){
@@ -146,18 +146,32 @@ public class MyLinkedList{
   public Integer get(int index) {
     if (index >= length || index < 0){
       throw new IndexOutOfBoundsException();}
-    return getNthNode(index).getData();
-  }
+      return getNthNode(index).getData();
+    }
 
   public Integer set(int index, Integer value) {
     if (index >= length || index < 0){
       throw new IndexOutOfBoundsException();}
-    return getNthNode(index).setData(value);
-  }
+      return getNthNode(index).setData(value);
+    }
+
+
+  public void extend(MyLinkedList other) {
+      Node Start = other.start;
+      Node End = other.end;
+      this.end.setNext(Start);
+      this.end = End;
+      this.length += other.length;
+      other.length = 0;
+      other.end = null;
+      other.end = null;
+    }
+
+
+    }
 
 
 
-}
 
 
 
@@ -165,35 +179,32 @@ public class MyLinkedList{
 
 
 
+    /*
+    Fields:
+    Node start
+    Node end
+    int length
 
+    Constructor:
+    MyLinkedList() - make an empty list.
 
+    Public Methods:   (This is a good order to try to implement them)
+    boolean add(Integer value)
+    int size()
+    String toString()   //note you don't have get(index) yet, nor would you want to use it here
 
-/*
-Fields:
-Node start
-Node end
-int length
+    Having a private method to get the nth node is very useful.
+    You would use such a method in many of your other methods (hinted with a *)
+    (Discussion point2. Why should getNthNode be private?)
 
-Constructor:
-MyLinkedList() - make an empty list.
+    *    Integer get(int index)
+    *    Integer set(int index,Integer value)
 
-Public Methods:   (This is a good order to try to implement them)
-boolean add(Integer value)
-int size()
-String toString()   //note you don't have get(index) yet, nor would you want to use it here
+    boolean contains(Integer value)
+    int indexOf(Integer value)
 
-Having a private method to get the nth node is very useful.
-You would use such a method in many of your other methods (hinted with a *)
-(Discussion point2. Why should getNthNode be private?)
-
-*    Integer get(int index)
-*    Integer set(int index,Integer value)
-
-boolean contains(Integer value)
-int indexOf(Integer value)
-
-*    void add(int index,Integer value)
-*    Integer remove(int index)
-*    boolean remove(Integer value) //a private method to find a node you want could be useful here
-edit: fixed typo, remove(value) returns boolean
-*/
+    *    void add(int index,Integer value)
+    *    Integer remove(int index)
+    *    boolean remove(Integer value) //a private method to find a node you want could be useful here
+    edit: fixed typo, remove(value) returns boolean
+    */
